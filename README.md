@@ -17,22 +17,21 @@ git clone https://github.com/anacnogueira/sitemark.git
 cd sitemark
 
 # Instale as dependências:
- ```bash
-    composer install
+ ```composer install
     ```
 # Copie o arquivo .env.example para .env e configure as variáveis de ambiente (banco de dados, email, etc):
 
-    ```bash
+    ```
     cp .env.example .env
     ```
 
 #. Gere a chave da aplicação:
-    ```bash
+    ```
     php artisan key:generate
     ```
 #. Inicie o docker com sail:
 
-    ```bash
+    ```
     sail up -d
     ```
 Depois, abra o navegador em:
