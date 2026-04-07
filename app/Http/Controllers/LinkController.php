@@ -20,7 +20,15 @@ class LinkController extends Controller
      */
     public function store(StoreLinkRequest $request)
     {
-        //
+        $data = $request->validated();
+
+        if ($file = $request->poster) {
+            $data['poster'] = $file->store('posters');
+        }
+
+        $request->user()->links()->create($data);
+
+        return redirect()->route('dashboard')->with('message', 'Link criado com sucesso.');
     }
 
     /**
