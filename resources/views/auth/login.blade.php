@@ -1,5 +1,5 @@
 <x-layout.app-guest>
-    <x-form :route="route('register')" post id="register-form">
+    <x-form :route="route('login')" post id="register-form">
         <h1 class="text-heading-small leading-heading-small font-bold text-content-primary pb-5"><span
                 class="border-b-2 border-orange-500">Ac</span>essar conta</h1>
 
