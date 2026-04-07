@@ -14,4 +14,7 @@
             class="bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded-full transition duration-300">Criar
             Conta</x-button>
     </x-form>
+    <div class="flex text-paragraph-medium leading-paragraph-medium text-content-secondary gap-2">
+        Já tem cadastro? <x-a default :href="route('login')">Acessar conta</x-a>
+    </div>
 </x-layout.app-guest>
