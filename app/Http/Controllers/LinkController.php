@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Link;
-use Illuminate\Http\Request;
 use App\Http\Requests\StoreLinkRequest;
+use App\Http\Requests\UpdateLinkRequest;
 class LinkController extends Controller
 {
     /**
@@ -46,9 +46,17 @@ class LinkController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Link $link)
+    public function update(UpdateLinkRequest $request, Link $link)
     {
-        //
+        $data = $request->validated();
+
+        if ($file = $request->poster) {
+            $data['poster'] = $file->store('posters');
+        }
+
+        $link->update($data);
+
+        return redirect()->route('dashboard')->with('message', 'Link atualizado com sucesso.');
     }
 
     /**
@@ -56,6 +64,8 @@ class LinkController extends Controller
      */
     public function destroy(Link $link)
     {
-        //
+        $link->delete();
+
+        return redirect()->route('dashboard')->with('message', 'Link excluído com sucesso!');
     }
 }

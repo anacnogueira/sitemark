@@ -2,7 +2,7 @@
     <div class="w-full flex flex-col gap-11">
         <h1 class="text-heading-small leading-heading-small font-bold text-content-primary py-5"><span
                 class="border-b-2 border-orange-500">Ed</span>itar link</h1>
-        <x-form :route="route('links.update', $link->id)" post id="add-link-form" enctype="multipart/form-data">
+        <x-form :route="route('links.update', $link->id)" put id="add-link-form" enctype="multipart/form-data">
             <div class="flex">
                 <div class="w-3/4">
                     <div class="flex gap-8">
