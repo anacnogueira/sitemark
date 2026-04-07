@@ -8,9 +8,9 @@ class ProfileController extends Controller
 {
     public function index()
     {
-        return view('profile', [
-            'user' => auth()->user(),
-        ]);
+        $user = auth()->user();
+
+        return view('profile', compact('user'));
     }
 
     public function update(UpdateProfileRequest $request)
