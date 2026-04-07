@@ -68,4 +68,19 @@ class LinkController extends Controller
 
         return redirect()->route('dashboard')->with('message', 'Link excluído com sucesso!');
     }
+
+    public function down(Link $link)
+    {
+        $link->moveDown();
+
+        return redirect()->route('dashboard');
+    }
+
+    public function up(Link $link)
+    {
+
+        $link->moveUp();
+
+        return redirect()->route('dashboard');
+    }
 }
