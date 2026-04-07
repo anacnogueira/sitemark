@@ -26,4 +26,5 @@
 
         </x-form>
     </div>
+    <x-footer />
 </x-layout.app-auth>

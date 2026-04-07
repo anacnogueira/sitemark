@@ -26,6 +26,10 @@ class LinkController extends Controller
             $data['poster'] = $file->store('posters');
         }
 
+        $user = auth()->user();
+
+        $data['sort'] = $user->links()->count() + 1;
+
         $request->user()->links()->create($data);
 
         return redirect()->route('dashboard')->with('message', 'Link criado com sucesso.');

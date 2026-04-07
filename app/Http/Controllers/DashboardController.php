@@ -7,6 +7,11 @@ class DashboardController extends Controller
 {
     public function __invoke()
     {
-      return view('dashboard');
+        $user = auth()->user();
+
+        $links = $user->links()
+            ->orderBy('sort')
+            ->get();
+        return view('dashboard', compact('user', 'links'));
     }
 }
